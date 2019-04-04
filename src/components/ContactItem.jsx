@@ -12,7 +12,7 @@ class ContactItem extends Component {
                 <p>email: {this.props.email}</p>
                 <p>website: {this.props.website}</p>
                 <p>phone: {this.props.phone}</p>
-                {/* <p>hometown: {this.props.hometown}</p> */}
+                <p>hometown: {this.props.hometown}</p>
              </div>
             </div>        
         );

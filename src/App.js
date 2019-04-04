@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-// import Main from './components/Main.jsx';
 import SearchBar from './components/SearchBar.jsx'
 import Contacts from './components/Contacts.jsx'
+import SortBtn from './components/SortBtn.jsx'
 import axios from 'axios'
 
 import './App.css';
 
 class App extends Component {
-  state = {   
-    contacts: [],
-    search: ''
-}
-
+  constructor(props) {
+    super(props)
+    this.state = {   
+      contacts: [],
+      search: ''
+  }
+  }
+  
 componentDidMount() {
     axios.get('https://jsonplaceholder.typicode.com/users')
         .then(res => {
@@ -28,11 +31,31 @@ handleSearch = (e) => {
     })
 }
 
+handleSort = () => {            
+  let newArr = [...this.state.contacts]
+  newArr.sort((a, b) => {
+    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+      return 1;
+    }
+    if (a.name.toLowerCase() < b.name.toLowerCase()) {
+      return -1;
+    }
+    return 0;
+  })
+  this.setState({
+    contacts: newArr
+  })
+}
+
   render() {
     return (
       <div className="App">
          <div className="container">
                 <h4 className="center">Main</h4>
+                <SortBtn 
+                handleSort={this.handleSort}
+                />
+
                 <SearchBar 
                 handleSearch={this.handleSearch}
                 search={this.state.search}

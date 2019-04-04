@@ -13,14 +13,14 @@ class Contacts extends Component {
             filteredContacts.map(contact => {
                 return (
                     <ContactItem 
+                    key={contact.id}
                     contacts={this.props.contacts}
-                    id={contact.id}
                     name={contact.name}
                     email={contact.email}
                     username={contact.username}
                     website={contact.website}
                     phone={contact.phone}
-                    // hometown={contact.hometown}
+                    hometown={contact.address.city}
                     />
                 )
             })        
