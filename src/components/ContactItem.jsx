@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class ContactItem extends Component {
     
     render() {
-        let {id} = this.props.contact
+        // let {contact} = this.props.contact
        
         return (
             <div className="post card" key={this.props.id}>
@@ -14,7 +14,7 @@ class ContactItem extends Component {
                 <p>website: {this.props.website}</p>
                 <p>phone: {this.props.phone}</p>
                 <p>hometown: {this.props.hometown}</p><br/>
-                <span className="grey-text">add to favorites     <button onClick={() => this.props.addToFav(id) } className="btn-floating btn-small waves-effect waves-light grey-darken">
+                <span className="grey-text">add to favorites     <button onClick={() => this.props.addToFav(this.props.contact) } className="btn-floating btn-small waves-effect waves-light grey-darken">
                     <i className="material-icons">add</i></button>
                 </span>
 

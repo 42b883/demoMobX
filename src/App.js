@@ -48,21 +48,12 @@ handleSort = () => {
   })
 }
 
-
-addToFav = (id) => {
-
-  this.state.contacts.map(item => {
-  //  let fav = [...this.state.fav, item]
-    if(item.id === id) {
-      let fav = [...this.state.fav, item]
-
-      // favArr.push(item);
-      this.setState({
-        fav
-      })
-
-    }
-    
+addToFav = (contact) => {
+  console.log('console.log => ', contact)
+  let fav = this.state.fav;
+  fav.push(contact)
+  this.setState({
+    fav
   })
 
   console.log(this.state.fav)
@@ -84,6 +75,7 @@ addToFav = (id) => {
 
                 <Contacts 
                     contacts={this.state.contacts}
+                    fav={this.state.fav}
                     search={this.state.search}
                     addToFav={this.addToFav}
                 />
