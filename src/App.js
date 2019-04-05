@@ -11,7 +11,8 @@ class App extends Component {
     super(props)
     this.state = {   
       contacts: [],
-      search: ''
+      search: '',
+      fav: []
   }
   }
   
@@ -47,6 +48,26 @@ handleSort = () => {
   })
 }
 
+
+addToFav = (id) => {
+
+  this.state.contacts.map(item => {
+  //  let fav = [...this.state.fav, item]
+    if(item.id === id) {
+      let fav = [...this.state.fav, item]
+
+      // favArr.push(item);
+      this.setState({
+        fav
+      })
+
+    }
+    
+  })
+
+  console.log(this.state.fav)
+}
+
   render() {
     return (
       <div className="App">
@@ -64,6 +85,7 @@ handleSort = () => {
                 <Contacts 
                     contacts={this.state.contacts}
                     search={this.state.search}
+                    addToFav={this.addToFav}
                 />
             </div>
       </div>
