@@ -52,22 +52,22 @@ handleSort = () => {
 
 addToFav = (contact) => {
   console.log('console.log => ', contact)
-  let fav = this.state.fav;
-  // let renderFav = this.state.renderFav;
-  fav.push(contact)
-
+  let fav = [...this.state.fav, contact];
   this.setState({
-    fav,
-    renderFav: true
+    fav
   })
- 
-  //  this.state.contacts.splice((contact.id-1), 1)
-  // this.setState({
-    contacts: this.state.contacts.splice((contact.id-1), 1)
-  // })
-  console.log("id: todel:::: ", contact.id)
-  console.log("bool:",this.state.renderFav)
-  console.log(this.state.fav)
+  console.log(this.state.renderFav)
+}
+
+deleteFav = (id) => {
+ const favRem = this.state.contacts.filter(item => {
+   return (
+     item.id !== id
+   )
+ })
+ this.setState({
+   contacts: favRem
+ })
 }
 
   render() {
@@ -87,7 +87,6 @@ addToFav = (contact) => {
                 <FavoriteContacts 
                     contacts={this.state.contacts}
                     contactsF={this.state.fav}
-                    // fav={this.state.fav}
                     search={this.state.search}
                     addToFav={this.addToFav}
                     renderFav={this.state.renderFav}
@@ -96,9 +95,9 @@ addToFav = (contact) => {
                 <Contacts 
                     contacts={this.state.contacts}
                     contactsF={this.state.fav}
-                    // fav={this.state.fav}
                     search={this.state.search}
                     addToFav={this.addToFav}
+                    deleteFav={this.deleteFav}
                     renderFav={this.state.renderFav}
                 />
                

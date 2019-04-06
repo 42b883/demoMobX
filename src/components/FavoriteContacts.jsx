@@ -4,17 +4,22 @@ import FavoriteContactItem from './FavoriteContactItem.jsx';
 
 class FavoriteContacts extends Component {
     render() {
-
+        let favTitle = null;
+        if (this.props.contactsF.length) {
+            favTitle= (
+                <div>
+                     <h4 className="blue-grey-text">Favorite Contacts</h4>
+                     <br/>
+                </div>
+            )
+        }
         let favContactList = this.props.contactsF.length ? (
             this.props.contactsF.map(favorite => {
                 return (
-                    <div>
-                        <FavoriteContactItem 
-                    // addToFav={this.props.addToFav}
-                    key={favorite.id}
+                    <div  key={favorite.id}>
+                    <FavoriteContactItem 
                     idF={favorite.id}
                     contactsF={this.props.contactsF}
-                    // fav={this.props.fav}
                     nameF={favorite.name}
                     emailF={favorite.email}
                     usernameF={favorite.username}
@@ -34,6 +39,7 @@ class FavoriteContacts extends Component {
         return (
             
             <div>
+            {favTitle}
             {favContactList}
             <br/><br/>
             </div>

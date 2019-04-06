@@ -4,6 +4,15 @@ import ContactItem from './ContactItem.jsx';
 
 class Contacts extends Component {
     render() {
+        let contactsTitle = null;
+        if (this.props.contacts.length) {
+            contactsTitle= (
+                <div>
+                     <h4 className="blue-grey-black">Contacts</h4>
+                     <br/>
+                </div>
+            )
+        }
         let filteredContacts = this.props.contacts.filter(contact => {
                 return contact.name.toLowerCase().includes(this.props.search.toLowerCase());
             }
@@ -13,6 +22,7 @@ class Contacts extends Component {
                 return (
                     <ContactItem 
                     addToFav={this.props.addToFav}
+                    deleteFav={this.props.deleteFav}
                     key={contact.id}
                     id={contact.id}
                     contact={contact}
@@ -32,7 +42,9 @@ class Contacts extends Component {
         )
 
         return (
-            <div>{contactList}
+            <div>
+            {contactsTitle}
+            {contactList}
             <br/><br/>
             </div>
         );
