@@ -1,28 +1,20 @@
-import React, { Component } from 'react';
+import React from "react";
 
-class FavoriteContactItem extends Component {
-    
-    render() {
+const FavoriteContactItem = props => {
+  const favContactList = (
+    <div className="post red card teal">
+      <div className="card-content">
+        <span className="card-title white-text">{props.nameFavorite}</span>
+        <p>username: {props.usernameFavorite}</p>
+        <p>email: {props.emailFavorite}</p>
+        <p>website: {props.websiteFavorite}</p>
+        <p>phone: {props.phoneFavorite}</p>
+        <p>hometown: {props.hometownFavorite}</p>
+        <br />
+      </div>
+    </div>
+  );
+  return <div>{favContactList}</div>;
+};
 
-       let favContactList = (
-        <div className="post red card teal">
-        <div className="card-content">
-        <span className="card-title white-text">{this.props.nameF}</span>
-        <p>username: {this.props.usernameF}</p>
-        <p>email: {this.props.emailF}</p>
-        <p>website: {this.props.websiteF}</p>
-        <p>phone: {this.props.phoneF}</p>
-        <p>hometown: {this.props.hometownF}</p><br/>
-     </div>
-    </div>      
-       )
-       
-        return (
-            <div>
-                {favContactList}
-            </div>
-        );
-    }
-}
-
-export default FavoriteContactItem
+export default FavoriteContactItem;
