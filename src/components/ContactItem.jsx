@@ -1,6 +1,8 @@
 import React from "react";
+import { observer, inject } from "mobx-react";
 
 const ContactItem = props => {
+  const ContactsStore = props.ContactsStore;
   const contactList = (
     <div>
       <div className="post card" key={props.id}>
@@ -18,8 +20,8 @@ const ContactItem = props => {
             add to favorites{" "}
             <button
               onClick={() => {
-                props.addToFav(props.contact);
-                props.deleteFav(props.id);
+                ContactsStore.addToFav(props.contact);
+                ContactsStore.deleteFav(props.id);
               }}
               className="btn-floating btn-small waves-effect waves-light grey-darken"
             >
@@ -33,4 +35,4 @@ const ContactItem = props => {
   return <div>{contactList}</div>;
 };
 
-export default ContactItem;
+export default inject("ContactsStore")(observer(ContactItem));

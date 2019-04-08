@@ -1,4 +1,5 @@
 import React from "react";
+import { observer, inject } from "mobx-react";
 
 const SearchBar = props => {
   return (
@@ -11,8 +12,8 @@ const SearchBar = props => {
               type="text"
               id="autocomplete-input"
               className="autocomplete"
-              onChange={props.handleSearch}
-              value={props.search}
+              onChange={props.ContactsStore.handleSearch}
+              value={props.ContactsStore.search}
               placeholder="Search for name..."
             />
           </div>
@@ -22,4 +23,4 @@ const SearchBar = props => {
   );
 };
 
-export default SearchBar;
+export default inject("ContactsStore")(observer(SearchBar));

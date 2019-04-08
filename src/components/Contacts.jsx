@@ -1,4 +1,5 @@
 import React from "react";
+import { observer, inject } from "mobx-react";
 import ContactItem from "./ContactItem.jsx";
 
 const Contacts = props => {
@@ -18,8 +19,8 @@ const Contacts = props => {
     filteredContacts.map(contact => {
       return (
         <ContactItem
-          addToFav={props.addToFav}
-          deleteFav={props.deleteFav}
+          // addToFav={props.addToFav}
+          // deleteFav={props.deleteFav}
           key={contact.id}
           id={contact.id}
           contact={contact}
@@ -45,4 +46,4 @@ const Contacts = props => {
   );
 };
 
-export default Contacts;
+export default inject("ContactsStore")(observer(Contacts));

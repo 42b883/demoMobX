@@ -1,11 +1,12 @@
 import React from "react";
+import { observer, inject } from "mobx-react";
 
-const SortBtn = ({ handleSort }) => {
+const SortBtn = props => {
   return (
     <div className="row">
       <div className="col s6 offset-s3 9m offset-m8">
         <button
-          onClick={handleSort}
+          onClick={props.ContactsStore.handleSort}
           className="btn waves-effect waves-light"
           name="sort"
         >
@@ -17,4 +18,4 @@ const SortBtn = ({ handleSort }) => {
   );
 };
 
-export default SortBtn;
+export default inject("ContactsStore")(observer(SortBtn));

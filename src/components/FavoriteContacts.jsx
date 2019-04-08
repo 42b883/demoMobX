@@ -1,4 +1,5 @@
 import React from "react";
+import { observer, inject } from "mobx-react";
 import FavoriteContactItem from "./FavoriteContactItem.jsx";
 
 const FavoriteContacts = props => {
@@ -38,4 +39,4 @@ const FavoriteContacts = props => {
   );
 };
 
-export default FavoriteContacts;
+export default inject("ContactsStore")(observer(FavoriteContacts));
