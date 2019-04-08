@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
-
+import PropTypes from "prop-types";
 import SearchBar from "./components/SearchBar.jsx";
 import Contacts from "./components/Contacts.jsx";
 import SortBtn from "./components/SortBtn.jsx";
@@ -27,5 +27,9 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  ContactsStore: PropTypes.object.isRequired
+};
 
 export default inject("ContactsStore")(observer(App));

@@ -1,5 +1,6 @@
 import React from "react";
 import { observer, inject } from "mobx-react";
+import PropTypes from "prop-types";
 import ContactItem from "./ContactItem.jsx";
 
 const Contacts = props => {
@@ -19,8 +20,6 @@ const Contacts = props => {
     filteredContacts.map(contact => {
       return (
         <ContactItem
-          // addToFav={props.addToFav}
-          // deleteFav={props.deleteFav}
           key={contact.id}
           id={contact.id}
           contact={contact}
@@ -44,6 +43,11 @@ const Contacts = props => {
       <br />
     </div>
   );
+};
+
+Contacts.propTypes = {
+  ContactsStore: PropTypes.object.isRequired,
+  contacts: PropTypes.array.isRequired
 };
 
 export default inject("ContactsStore")(observer(Contacts));

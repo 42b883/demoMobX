@@ -1,5 +1,6 @@
 import React from "react";
 import { observer, inject } from "mobx-react";
+import PropTypes from "prop-types";
 import FavoriteContactItem from "./FavoriteContactItem.jsx";
 
 const FavoriteContacts = props => {
@@ -37,6 +38,10 @@ const FavoriteContacts = props => {
       <br />
     </div>
   );
+};
+
+FavoriteContacts.propTypes = {
+  favoriteContacts: PropTypes.array.isRequired
 };
 
 export default inject("ContactsStore")(observer(FavoriteContacts));

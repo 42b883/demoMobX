@@ -1,5 +1,6 @@
 import React from "react";
 import { observer, inject } from "mobx-react";
+import PropTypes from "prop-types";
 
 const SearchBar = props => {
   return (
@@ -21,6 +22,11 @@ const SearchBar = props => {
       </div>
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  ContactsStore: PropTypes.object.isRequired,
+  search: PropTypes.string.isRequired
 };
 
 export default inject("ContactsStore")(observer(SearchBar));
