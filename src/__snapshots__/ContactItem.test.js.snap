@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders each contact item without crashing 1`] = `
+<ContactItem
+  ContactsStore={
+    Object {
+      "email": "tldrl@mail.us",
+      "name": "Yauhen",
+      "phone": "23979247",
+      "website": "www.tt.co",
+    }
+  }
+/>
+`;
